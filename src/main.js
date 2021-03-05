@@ -4,7 +4,7 @@ import router from './router/main.js'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 import ElementUI from 'element-ui'
-import 'element-ui/lib/theme-chalk/index.css'
+import 'element-theme-dark';
 import VueCookies from 'vue-cookies'
 import global_msg from './global.js'
 Vue.prototype.$global_msg = global_msg
