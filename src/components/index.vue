@@ -22,22 +22,28 @@
             <el-button type="text" :icon="isCollapse?'el-icon-arrow-right':'el-icon-arrow-left'">收起</el-button>
           </el-menu-item>
           <el-menu-item index="1" id="m1">
-            <el-button type="text">个人中心</el-button>
+            <i class="el-icon-s-home"></i>
+            <span slot="title">个人中心</span>
           </el-menu-item>
           <el-menu-item index="2" id="m2">
-            <el-button type="text">考试列表</el-button>
+            <i class="el-icon-menu"></i>
+            <span slot="title">考试列表</span>
           </el-menu-item>
-          <el-menu-item index="3" id="m3">
-            <el-button type="text">成绩查询</el-button>
+          <el-menu-item index="3" id="m3" v-if="user_group=='student'">
+            <i class="el-icon-s-data"></i>
+            <span slot="title">成绩查询</span>
           </el-menu-item>
-          <el-menu-item index="4" id="m4">
-            <el-button type="text">成绩管理</el-button>
+          <el-menu-item index="4" id="m4" v-if="user_group=='admin'">
+            <i class="el-icon-s-data"></i>
+            <span slot="title">成绩管理</span>
           </el-menu-item>
-          <el-menu-item index="5" id="m5">
-            <el-button type="text">人员管理</el-button>
+          <el-menu-item index="5" id="m5" v-if="user_group=='admin'">
+            <i class="el-icon-user"></i>
+            <span slot="title">人员管理</span>
           </el-menu-item>
-          <el-menu-item index="6" id="m6">
-            <el-button type="text">题库管理</el-button>
+          <el-menu-item index="6" id="m6" v-if="user_group=='admin'">
+            <i class="el-icon-s-management"></i>
+            <span slot="title">题库管理</span>
           </el-menu-item>
         </el-menu>
       </el-aside>
@@ -58,6 +64,7 @@ export default {
     return {
       token:'',
       user_name:'',
+      user_group:'student',
       default_index:'',
       loginStatus:false,
       isCollapse:false,
